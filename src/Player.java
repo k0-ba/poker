@@ -197,18 +197,6 @@ public class Player{
         return hand.get(index);
     }
 
-    public static int compareScore(Player playerOne, Player playerTwo){
-        if(playerOne.getScore() < playerTwo.getScore()){
-            return -1;
-        }
-        else if(playerOne.getScore() == playerTwo.getScore()){
-            return 0;
-        }
-        else{
-            return 1;
-        }
-    }
-
     public static ArrayList<Player> rankPlayers(ArrayList<Player> players){
         ArrayList<Player> rankedList = new ArrayList<Player>();
 
