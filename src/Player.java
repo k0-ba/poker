@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,7 +10,7 @@ import java.util.Collections;
  * To change this template use File | Settings | File Templates.
  */
 public class Player{
-    private ArrayList<Card> hand;
+    private List<Card> hand;
     private String name;
     private boolean fold;
     private int bet;
@@ -52,7 +53,7 @@ public class Player{
         return name;
     }
 
-    public ArrayList<Card> getHand(){
+    public List<Card> getHand(){
         return hand;
     }
 
@@ -139,7 +140,7 @@ public class Player{
         return highCard;
     }
 
-    public static Card getHighCardWithPairs(ArrayList<Card> hand){
+    public static Card getHighCardWithPairs(List<Card> hand){
         int index = 0;
         for(int i = 0; i < hand.size()-1; i++){
             if(hand.get(i).getValue() == hand.get(i+1).getValue()){
@@ -149,7 +150,7 @@ public class Player{
         return hand.get(index);
     }
 
-    public static Card getHighCardWithTwoPairs(ArrayList<Card> hand){
+    public static Card getHighCardWithTwoPairs(List<Card> hand){
         int index = 0;
         for(int i = 0; i < hand.size()-3; i++){
             if(hand.get(i).getValue() == hand.get(i+1).getValue()){
@@ -163,7 +164,7 @@ public class Player{
         return hand.get(index);
     }
 
-    public static Card getHighCardWithThreeOfAKind(ArrayList<Card> hand){
+    public static Card getHighCardWithThreeOfAKind(List<Card> hand){
         int index = 0;
         for(int i = 0; i < hand.size()-2; i++){
             if((hand.get(i).getValue() == hand.get(i+1).getValue()) &&
@@ -174,7 +175,7 @@ public class Player{
         return hand.get(index);
     }
 
-    public static Card getHighCardWithFullHouse(ArrayList<Card> hand){
+    public static Card getHighCardWithFullHouse(List<Card> hand){
         Card highCardFromPair = getHighCardWithPairs(hand);
         Card highCardFromThreeOfAKind = getHighCardWithThreeOfAKind(hand);
         if(highCardFromPair.getValue() > highCardFromThreeOfAKind.getValue()){
@@ -185,7 +186,7 @@ public class Player{
         }
     }
 
-    public static Card getHighCardWithFourOfAKind(ArrayList<Card> hand){
+    public static Card getHighCardWithFourOfAKind(List<Card> hand){
         int index = 0;
         for(int i = 0; i < hand.size()-3; i++){
             if(hand.get(i).getValue() == hand.get(i+1).getValue() &&
@@ -197,8 +198,8 @@ public class Player{
         return hand.get(index);
     }
 
-    public static ArrayList<Player> rankPlayers(ArrayList<Player> players){
-        ArrayList<Player> rankedList = new ArrayList<Player>();
+    public static List<Player> rankPlayers(List<Player> players){
+        List<Player> rankedList = new ArrayList<Player>();
 
         for (Player player: players){
             player.setScore();

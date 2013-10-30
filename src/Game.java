@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,7 +15,7 @@ import java.util.Collections;
 public class Game {
 
     public static void main(String[] args) throws IOException{
-        ArrayList<Player> players = new ArrayList<Player>();
+        List<Player> players = new ArrayList<Player>();
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         Pile pile = new Pile();
         pile.shuffle();
@@ -32,7 +33,7 @@ public class Game {
         input.close();
     }
 
-    private static void announceWinner(ArrayList<Player> players) {
+    private static void announceWinner(List<Player> players) {
         if(players.get(0).getScore() == players.get(1).getScore()){
             switch (players.
                     get(0).
@@ -57,7 +58,7 @@ public class Game {
         }
     }
 
-    private static void dealCards(ArrayList<Player> players, Pile pile){
+    private static void dealCards(List<Player> players, Pile pile){
         for(int j = 0; j < 5; j++){
             for(Player player: players){
                 player.addCard(pile.drawCard());
@@ -66,14 +67,14 @@ public class Game {
         }
     }
 
-    private static void setPlayers(ArrayList<Player> players, BufferedReader input) throws IOException{
+    private static void setPlayers(List<Player> players, BufferedReader input) throws IOException{
         for(int i = 0; i < 4; i++){
             System.out.println("Input desired name: ");
             players.add(new Player(input.readLine()));
         }
     }
 
-    private static void runTradeRound(ArrayList<Player> players, Pile pile) throws IOException{
+    private static void runTradeRound(List<Player> players, Pile pile) throws IOException{
         for(Player player: players){
             int numberToSwap;
             BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -104,7 +105,7 @@ public class Game {
         }
     }
 
-    private static void runBetRound(ArrayList<Player> players, Pile pile) throws IOException {
+    private static void runBetRound(List<Player> players, Pile pile) throws IOException {
         boolean newBet = true;
         int playerBet = 0;
         int currentBet = 0;

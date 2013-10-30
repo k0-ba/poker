@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,7 +16,7 @@ public class GameTest {
 
     @Test
     public void playerOneShouldWin(){
-        ArrayList<Player> players = new ArrayList<Player>();
+        List<Player> players = new ArrayList<Player>();
 
         Player playerOne = new Player("Player One");
         playerOne.addCard(new Card(Suits.CLOVER, 2));
@@ -46,7 +47,7 @@ public class GameTest {
 
     @Test
     public void playerTwoShouldWin(){
-        ArrayList<Player> players = new ArrayList<Player>();
+        List<Player> players = new ArrayList<Player>();
 
         Player playerOne = new Player("Player One");
         playerOne.addCard(new Card(Suits.CLOVER, 2));
@@ -77,7 +78,7 @@ public class GameTest {
 
     @Test
     public void nobodyShouldWin(){
-        ArrayList<Player> players = new ArrayList<Player>();
+        List<Player> players = new ArrayList<Player>();
         String result = "";
 
         Player playerOne = new Player("Player One");

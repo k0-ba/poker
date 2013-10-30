@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * To change this template use File | Settings | File Templates.
  */
 public class Rules {
-    public static boolean hasPair(ArrayList<Card> hand){
+    public static boolean hasPair(List<Card> hand){
         for(int i = 0; i < hand.size()-1; i++){
             if(hand.get(i).getValue() == hand.get(i+1).getValue()){
                 return true;
@@ -17,7 +18,7 @@ public class Rules {
         return false;
     }
 
-    public static boolean hasTwoPairs(ArrayList<Card> hand){
+    public static boolean hasTwoPairs(List<Card> hand){
         for(int i = 0; i < hand.size()-3; i++){
             if(hand.get(i).getValue() == hand.get(i+1).getValue()){
                 for(int k = i + 1; k < hand.size()-1; k++){
@@ -30,7 +31,7 @@ public class Rules {
         return false;
     }
 
-    public static boolean hasThreeOfAKind(ArrayList<Card> hand){
+    public static boolean hasThreeOfAKind(List<Card> hand){
         for(int i = 0; i < hand.size()-2; i++){
             if((hand.get(i).getValue() == hand.get(i+1).getValue()) &&
                 hand.get(i+1).getValue() == hand.get(i+2).getValue()){
@@ -40,7 +41,7 @@ public class Rules {
         return false;
     }
 
-    public static boolean hasStraight(ArrayList<Card> hand){
+    public static boolean hasStraight(List<Card> hand){
         int temp = hand.get(0).getValue();
         for(int i = 1; i < hand.size(); i++){
             if ((temp + 1) == hand.get(i).getValue()){
@@ -59,7 +60,7 @@ public class Rules {
         return false;
     }
 
-    public static boolean hasFlush(ArrayList<Card> hand){
+    public static boolean hasFlush(List<Card> hand){
         Suits tempSuit = hand.get(0).getSuit();
         for(Card card: hand){
             if(tempSuit != card.getSuit()){
@@ -69,7 +70,7 @@ public class Rules {
         return true;
     }
 
-    public static boolean hasFullHouse(ArrayList<Card> hand){
+    public static boolean hasFullHouse(List<Card> hand){
         if(hasPair(hand) && hasThreeOfAKind(hand)){
             return true;
         }
@@ -78,7 +79,7 @@ public class Rules {
         }
     }
 
-    public static boolean hasFourOfAKind(ArrayList<Card> hand){
+    public static boolean hasFourOfAKind(List<Card> hand){
         for(int i = 0; i < hand.size()-3; i++){
             if(hand.get(i).getValue() == hand.get(i+1).getValue() &&
                     hand.get(i+1).getValue() == hand.get(i+2).getValue() &&
@@ -89,11 +90,11 @@ public class Rules {
         return false;
     }
 
-    public static boolean hasStraightFlush(ArrayList<Card> hand){
+    public static boolean hasStraightFlush(List<Card> hand){
         return (hasFlush(hand) && hasStraight(hand));
     }
 
-    public static boolean hasRoyalStraightFlush(ArrayList<Card> hand){
+    public static boolean hasRoyalStraightFlush(List<Card> hand){
         if(hasFlush(hand)){
             for(int i = 0; i < hand.size(); i++){
                 if(hand.get(i).getValue() != i+10){

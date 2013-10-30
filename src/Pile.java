@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,7 +10,7 @@ import java.util.Collections;
  * To change this template use File | Settings | File Templates.
  */
 public class Pile {
-    private ArrayList<Card> pile;
+    private List<Card> pile;
 
     public Pile(){
         pile = new ArrayList<Card>();
@@ -20,7 +21,7 @@ public class Pile {
         }
     }
 
-    public ArrayList<Card> getPile(){
+    public List<Card> getPile(){
         return this.pile;
     }
 
